@@ -3,7 +3,7 @@
 This is my base boilerplate for web development. Designed to be somewhat like Grunt or Gulp, it has automatic functionality that will minify code, CSS and images.
 
 ### Setup
-You need to create a `.ftpsrc` file. This holds your FTP credentials. Checkout the `.ftpsrc-sample` for reference. (This file needs to be created regardless if you use the FTP options or not.
+You need to create a `.ftpjsrc` file. This holds your FTP credentials. Checkout the `.ftpjsrc-sample` for reference. (This file needs to be created regardless if you use the FTP options or not.
 
 Built in commands are:
 
@@ -30,7 +30,7 @@ Examples:
 `$ yarn build no-js-minify no-image-minify`
 
 ### Usage
-I typically run `yarn watch` and `yarn start` in two separate terminals. Express used to auto-reload, but something changed and I haven't had time to revist the issue. 
+I typically run `yarn watch` and `yarn start` in two separate terminals. Express used to auto-reload, but something changed and I haven't had time to revist the issue.
 
 
 ### Issues
