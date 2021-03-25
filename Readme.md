@@ -2,6 +2,9 @@
 
 This is my base boilerplate for web development. Designed to be somewhat like Grunt or Gulp, it has automatic functionality that will minify code, CSS and images.
 
+### Setup
+You need to create a `.ftpsrc` file. This holds your FTP credentials. Checkout the `.ftpsrc-sample` for reference. (This file needs to be created regardless if you use the FTP options or not.
+
 Built in commands are:
 
 `$ yarn build` - Manually trigger the site build. Files go into the "dist" folder.
@@ -14,7 +17,7 @@ Built in commands are:
 
 | Command          | Description  | Default |
 | :--------------: | :---------- | :--------: |
-| `ftp`         | Turns **ON** ftp uploads on file change/build (ftp requires you have a .ftpjsrc setup.          | Off |
+| `ftp`         | Turns **ON** ftp uploads on file change/build (ftp requires you have a .ftpjsrc setup.)          | Off |
 | `no-js-minify`   | Turns **OFF** minifying/uglifying JS files. | On |
 | `no-html-minify` | Turns **OFF** minifying HTML files | On |
 | `no-css-minify` | Turns **OFF** minifying CSS files (Still converts SASS to CSS) | On |
