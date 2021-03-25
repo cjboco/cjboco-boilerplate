@@ -8,31 +8,31 @@ var chokidar = require("chokidar");
 
 var app = express();
 
-var publicDir = path.join(__dirname, "dist");
+var distDir = path.join(__dirname, "dist");
 
 app.set("port", process.env.PORT || 8080);
 app.use(logger("dev"));
 app.use(bodyParser.json()); // Parses json, multi-part (file), url-encoded
 
-// my public dir struture
+// my dist dir struture
 app.use(
 	"/vendor",
-	express.static(path.join(__dirname, "public/assets/js/vendor"))
+	express.static(path.join(__dirname, "dist/assets/js/vendor"))
 );
 app.use(
 	"/mylibs",
-	express.static(path.join(__dirname, "public/assets/js/mylibs"))
+	express.static(path.join(__dirname, "dist/assets/js/mylibs"))
 );
-app.use("/js", express.static(path.join(__dirname, "public/assets/js")));
+app.use("/js", express.static(path.join(__dirname, "dist/assets/js")));
 app.use(
 	"/images",
-	express.static(path.join(__dirname, "public/assets/images"))
+	express.static(path.join(__dirname, "dist/assets/images"))
 );
-app.use("/css", express.static(path.join(__dirname, "public/assets/css")));
-app.use("/assets", express.static(path.join(__dirname, "public/assets")));
+app.use("/css", express.static(path.join(__dirname, "dist/assets/css")));
+app.use("/assets", express.static(path.join(__dirname, "dist/assets")));
 
 app.get("/", function (req, res) {
-	res.sendFile(path.join(publicDir, "index.html"));
+	res.sendFile(path.join(distDir, "index.html"));
 });
 
 var server = http.createServer(app);
@@ -41,7 +41,7 @@ var server = http.createServer(app);
 reload(app);
 
 // Initialize watcher.
-var watcher = chokidar.watch(["public/assets/"], {
+var watcher = chokidar.watch(["dist/assets/"], {
 	persistent: true,
 	ignored: [".*"],
 	ignoreInitial: true,
