@@ -1,0 +1,1 @@
+*,*::before,*::after{-webkit-box-sizing:border-box;box-sizing:border-box}html{min-height:100vh}body{background-color:white;min-height:100%}*{font-weight:normal}h1,h2,h3,h4,h5{font-weight:normal}a,a:link,a:visited{color:teal}a:active,a:hover{color:green}
