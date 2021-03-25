@@ -26,10 +26,10 @@ Examples:
 
 `$ yarn build no-js-minify no-image-minify`
 
-###Usage
+### Usage
 I typically run `yarn watch` and `yarn start` in two separate terminals. Express used to auto-reload, but something changed and I haven't had time to revist the issue. 
 
 
-###Issues
+### Issues
 
 I know that NODE-SASS has been depreciated. I will get around to removing that and using something different at some point. But other than that, it works fairly good. I'm sure there's room for improvement. Let me know.
