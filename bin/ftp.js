@@ -1,6 +1,5 @@
 /*jshint strict:implied, esversion:6, curly:false, unused:false */
 /*globals module,require,console */
-
 const fse = require( 'fs-extra' );
 const path = require( 'path' );
 const Client = require( 'ftp' );
@@ -43,14 +42,18 @@ function findRecursive( dir, fileName ) {
 
 // this module: npm install ftp --save-dev
 var ftp;
-//var ftp_config = verifyExists( '.ftpjsrc' );
+var ftp_config = verifyExists( '.ftpjsrc' );
 var ftp_settings = {};
 
 try {
 
-	var cfg = findRecursive( process.cwd(), '.ftpjsrc' );
-	ftp_settings = fse.readFileSync( cfg, 'utf8' );
-	ftp_settings = JSON.parse( ftp_settings );
+	if (!ftp_config) {
+		console.error( ('You must have a .ftpsrc file located in the root of your project.').bold.red );
+	} else {
+		var cfg = findRecursive( process.cwd(), '.ftpjsrc' );
+		ftp_settings = fse.readFileSync( cfg, 'utf8' );
+		ftp_settings = JSON.parse( ftp_settings );
+	}
 
 } catch ( ex ) {
 
@@ -58,7 +61,7 @@ try {
 
 }
 
-if ( typeof ftp_settings === 'object' && ftp_settings.host && ftp_settings.user && ftp_settings.password && ftp_settings.keepalive ) {
+if ( ftp_config && typeof ftp_settings === 'object' && ftp_settings.host && ftp_settings.user && ftp_settings.password && ftp_settings.keepalive ) {
 
 	module.exports = {
 
@@ -162,9 +165,5 @@ if ( typeof ftp_settings === 'object' && ftp_settings.host && ftp_settings.user 
 		delete: function ( buffer, destPath, callback ) {}
 
 	};
-
-} else {
-
-	callback( Error( 'Invalid FTP configuration.' ) );
 
 }
