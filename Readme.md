@@ -30,7 +30,7 @@ Examples:
 `$ yarn build no-js-minify no-image-minify`
 
 ### Usage
-I typically run `yarn watch` and `yarn start` in two separate terminals. Express used to auto-reload, but something changed and I haven't had time to revist the issue.
+I typically run `yarn watch` and `yarn start` in two separate terminals.
 
 
 ### Issues

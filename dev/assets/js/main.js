@@ -9,11 +9,6 @@ var CJ = ( function ( parent ) {
 
 	var debug = false;
 
-	// check globals
-	if ( !globals.baseUrl || !globals.baseTopUrl || !globals.baseWeb ) {
-		throw 'Missing required variables "baseUrl,basePath,baseWeb".';
-	}
-
 	/* ======================== Start: Editable Content Below ======================== */
 
 	if ( debug ) {
