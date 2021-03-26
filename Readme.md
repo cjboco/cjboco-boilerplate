@@ -1,7 +1,5 @@
 # CJBoCo Bolierplate
 
-![example workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
-
 This is my base boilerplate for web development. Designed to be somewhat like Grunt or Gulp, it has automatic functionality that will minify code, CSS and images.
 
 ### Setup
