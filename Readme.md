@@ -1,5 +1,7 @@
 # CJBoCo Bolierplate
 
+![David](https://img.shields.io/david/cjboco/cjboco-boilerplate)
+
 This is my base boilerplate for web development. Designed to be somewhat like Grunt or Gulp, it has automatic functionality that will minify code, CSS and images.
 
 ### Setup
