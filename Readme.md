@@ -2,10 +2,10 @@
 
 ![David](https://img.shields.io/david/cjboco/cjboco-boilerplate)
 
-This is my base boilerplate for web development. Designed to be somewhat like Grunt or Gulp, it has automatic functionality that will minify code, CSS and images.
+This is my base boilerplate for web development. Designed to be somewhat like Grunt or Gulp, it has automatic functionality that will minify code, CSS and images. It can also PUT files up onto a FTP server, though this functionality is a bit tempermental.
 
 ### Setup
-You need to create a `.ftpjsrc` file. This holds your FTP credentials. Checkout the `.ftpjsrc-sample` for reference. (This file needs to be created regardless if you use the FTP options or not.
+You need to create a `.ftpjsrc` file. This holds your FTP credentials. Checkout the `.ftpjsrc-sample` for reference. (This file needs to be created regardless if you use the FTP options or not.)
 
 Built in commands are:
 

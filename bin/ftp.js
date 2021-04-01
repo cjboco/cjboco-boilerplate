@@ -1,9 +1,11 @@
 /*jshint strict:implied, esversion:6, curly:false, unused:false */
 /*globals module,require,console */
+
 const fse = require( 'fs-extra' );
 const path = require( 'path' );
 const Client = require( 'ftp' );
 const colors = require( 'colors' ); // jshint ignore:line
+const prompt = require('prompt');
 const log = console.log.bind( console ); // Something to use when events are received.
 
 /*
@@ -132,6 +134,28 @@ if ( ftp_config && typeof ftp_settings === 'object' && ftp_settings.host && ftp_
 							callback( err );
 						}
 
+						if (verifyExists(aFile.destPath)) {
+
+							prompt.start();
+
+							prompt.get([{
+								name: 'yesno',
+								validator: '/^(y|n)[a-zA-Z]*/',
+								warning: 'Please answer with Yes or No (y/n).'
+							}], function (err, result) {
+								if (err) { return callback(err); }
+								console.log('File already exists. Would you like to overwrite? (yes/no):');
+								if (result.yesno.toLowerCase().subString(0, 1) === 'y') {
+									// delete the file
+									delete( aFile.destPath, callback )
+								} else {
+									callback('Error: Cannot upload a file when that file already exists.');
+								}
+							});
+
+						}
+
+
 						ftp.put( aFile.srcPath, aFile.destPath, ( err ) => {
 
 							if ( err ) {
@@ -162,8 +186,31 @@ if ( ftp_config && typeof ftp_settings === 'object' && ftp_settings.host && ftp_
 
 		rename: function ( buffer, destPath, callback ) {},
 
-		delete: function ( buffer, destPath, callback ) {}
+		delete: function (buffer, destPath, callback) {
+
+			ftp.put( aFile.destPath, ( err ) => {
+
+				if ( err ) {
+
+					callback( err );
+
+				} else {
+
+					callback( null, {
+						src: '',
+						dest: aFile.destPath
+					} );
+
+				}
+
+			} );
+
+		}
 
 	};
+
+} else {
+
+	callback( Error( 'Invalid FTP configuration.' ) );
 
 }

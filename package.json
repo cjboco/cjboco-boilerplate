@@ -47,5 +47,8 @@
 	},
 	"browserslist": [
 		"last 2 version"
-	]
+	],
+	"devDependencies": {
+		"prompt": "^1.1.0"
+	}
 }
