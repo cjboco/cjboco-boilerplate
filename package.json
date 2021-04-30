@@ -43,7 +43,7 @@
 		"reload": "^3.1.1",
 		"stylelint": "^13.12.0",
 		"tunnel-agent": "^0.6.0",
-		"uglify-js": "^3.13.4"
+		"uglify-js": "^3.13.5"
 	},
 	"browserslist": [
 		"last 2 version"
